@@ -1,0 +1,7 @@
+version: '3.7'
+
+services:
+
+  app:
+    ports:
+      - $DEV_PORT:3000

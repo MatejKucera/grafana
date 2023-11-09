@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+
+  app:
+    image: grafana/grafana:10.2.0
+    restart: always
+    env_file:
+      - ../.env
+    volumes:
+      - $DATA_DIR:/var/lib/grafana
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.grafana.rule=Host(`$HOST`)
+      - traefik.http.routers.grafana.entrypoints=websecure
+      - traefik.http.routers.grafana.tls=true
+      - traefik.http.routers.grafana.tls.certresolver=myresolver
+      - traefik.http.routers.grafana.tls.options=mintls12@file
