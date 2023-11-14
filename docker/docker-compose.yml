@@ -3,7 +3,7 @@ version: '3.7'
 services:
 
   app:
-    image: grafana/grafana:10.2
+    image: grafana/grafana:10.2.0
     restart: always
     env_file:
       - ../.env
