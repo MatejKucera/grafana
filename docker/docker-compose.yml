@@ -3,15 +3,16 @@ version: '3.7'
 services:
 
   app:
-    image: grafana/grafana:10.2.0
+    image: grafana/grafana:10.1.5
     restart: always
     env_file:
       - ../.env
     volumes:
       - $DATA_DIR:/var/lib/grafana
+      - $RESOURCE_DIR:/resource
     labels:
-      - traefik.enable=true
-      - traefik.http.middlewares.ipw.ipwhitelist.sourcerange=146.102.75.0/24
+      #- traefik.enable=true
+      #- traefik.http.middlewares.ipw.ipwhitelist.sourcerange=146.102.75.0/24
       - traefik.http.routers.grafana.middlewares=ipw@docker
       - traefik.http.routers.grafana.rule=Host(`$HOST`)
       - traefik.http.routers.grafana.entrypoints=websecure
