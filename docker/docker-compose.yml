@@ -10,6 +10,7 @@ services:
     volumes:
       - $DATA_DIR:/var/lib/grafana
       - $RESOURCE_DIR:/resource
+      - $GRAFANA_INI:/etc/grafana/grafana.ini
     labels:
       - traefik.enable=true
       #- traefik.http.middlewares.ipw.ipwhitelist.sourcerange=146.102.75.0/24
