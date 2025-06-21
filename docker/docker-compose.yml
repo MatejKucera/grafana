@@ -18,4 +18,3 @@ services:
       - traefik.http.routers.grafana.entrypoints=websecure
       - traefik.http.routers.grafana.tls=true
       - traefik.http.routers.grafana.tls.certresolver=myresolver
-      - traefik.http.routers.grafana.tls.options=mintls12@file
